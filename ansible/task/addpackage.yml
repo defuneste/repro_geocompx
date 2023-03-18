@@ -1,0 +1,20 @@
+---
+- name: add r2u apt key
+  ansible.builtin.apt_key:
+    url: https://eddelbuettel.github.io/r2u/assets/dirk_eddelbuettel_key.asc
+    state: present
+
+- name: add r2u apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://dirk.eddelbuettel.com/cranapt focal main"
+    state: present
+
+- name: install packages for fundation
+  apt:
+    name:
+      - r-cran-dplyr
+      - r-cran-sf
+      - r-cran-terra
+      - r-cran-units
+      - r-cran-spdata
+    update_cache: yes

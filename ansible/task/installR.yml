@@ -1,0 +1,15 @@
+---
+- name: add R apt key
+  ansible.builtin.apt_key:
+    url: https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc
+    state: present
+
+- name: add R apt repository
+  ansible.builtin.apt_repository:
+    repo: "deb https://cran.rstudio.com/bin/linux/ubuntu/  focal-cran40/"
+    state: present
+
+- name: install R
+  apt:
+    name: r-base
+    update_cache: yes
