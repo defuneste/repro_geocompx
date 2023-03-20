@@ -1,0 +1,32 @@
+---
+- name: Install gebi
+  apt:
+    name:
+      - gdebi-core
+      - lib32gcc-s1
+      - lib32stdc++6
+      - libc6-i386
+      - libclang-10-dev
+      - libclang-common-10-dev
+      - libclang-dev
+      - libclang1-10
+      - libgc1c2
+      - libllvm10
+      - libobjc-9-dev
+      - libobjc4
+    state: present
+
+- name: Copy deb of Rstudio server
+  copy:
+    src: "../../rstudio/rstudio-server-1.4.1106-amd64.deb"
+    dest: "/opt/"
+
+- name:  Install Rstudio server
+  command:
+    cmd: gdebi -n /opt/rstudio-server-1.4.1106-amd64.deb
+
+- name: Start Rstudio server
+  service:
+    name: rstudio-server
+    enabled: true
+    state: started

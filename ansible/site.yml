@@ -7,4 +7,5 @@
   tasks:
     - import_tasks: task/student.yml
     - import_tasks: task/installR.yml
+    - import_tasks: task/rstudio.yml
     - import_tasks: task/addpackage.yml
