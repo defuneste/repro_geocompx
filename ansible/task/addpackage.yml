@@ -6,7 +6,7 @@
 
 - name: add r2u apt repository
   ansible.builtin.apt_repository:
-    repo: "deb [arch=amd64] https://dirk.eddelbuettel.com/cranapt focal main"
+    repo: "deb [arch=amd64] https://dirk.eddelbuettel.com/cranapt jammy main"
     state: present
 
 - name: install packages for fundation

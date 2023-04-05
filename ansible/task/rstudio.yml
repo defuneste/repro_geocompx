@@ -3,27 +3,21 @@
   apt:
     name:
       - gdebi-core
-      - lib32gcc-s1
-      - lib32stdc++6
-      - libc6-i386
-      - libclang-10-dev
-      - libclang-common-10-dev
-      - libclang-dev
-      - libclang1-10
-      - libgc1c2
-      - libllvm10
-      - libobjc-9-dev
-      - libobjc4
+      - libapparmor1
+      - libedit2
+      - libc6
+      - psmisc
+      - rrdtool
     state: present
 
 - name: Copy deb of Rstudio server
   copy:
-    src: "../../rstudio/rstudio-server-1.4.1106-amd64.deb"
+    src: "../../rstudio/rstudio-server-2023.03.0-386-amd64.deb"
     dest: "/opt/"
 
 - name:  Install Rstudio server
   command:
-    cmd: gdebi -n /opt/rstudio-server-1.4.1106-amd64.deb
+    cmd: gdebi -n /opt/rstudio-server-2023.03.0-386-amd64.deb
 
 - name: Start Rstudio server
   service:

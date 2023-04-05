@@ -6,7 +6,7 @@
 
 - name: add R apt repository
   ansible.builtin.apt_repository:
-    repo: "deb https://cran.rstudio.com/bin/linux/ubuntu/  focal-cran40/"
+    repo: "deb https://cran.rstudio.com/bin/linux/ubuntu/  jammy-cran40/"
     state: present
 
 - name: install R
